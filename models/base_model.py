@@ -11,7 +11,9 @@ class BaseModel:
         if kwargs is not None and len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key != "__class__":
-                    if key == "created_at" or key == "updated_at":
+                    if key == "created_at":
+                        value = datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                    elif key == "updated_at":
                         value = datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
                     setattr(self, key, value)
         else:
