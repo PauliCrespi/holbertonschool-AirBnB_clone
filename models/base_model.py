@@ -8,11 +8,11 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """init"""
-        if kwargs is not None:
+        if kwargs is not None and len(kwargs) != 0:
             for key, value in kwargs.items():
-                if key == "created_at" or key == "updated_at":
-                    value = datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
                 if key != "__class__":
+                    if key == "created_at" or key == "updated_at":
+                        value = datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
                     setattr(self, key, value)
         else:
             self.created_at = datetime.datetime.now()
@@ -29,9 +29,12 @@ class BaseModel:
 
     def to_dict(self):
         """returns dictionary of the instance"""
-        self.created_at = self.created_at.isoformat()
-        self.updated_at = self.updated_at.isoformat()
-        dAux = self.__dict__
+        dAux = self.__dict__.copy()
+        for key in dAux:
+            if key == "created_at":
+                dAux[key] = dAux[key].isoformat()
+            if key == "updated_at":
+                dAux[key] = dAux[key].isoformat()
         dAux["__class__"] = "BaseModel"
         return dAux
 
