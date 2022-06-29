@@ -40,8 +40,8 @@ class FileStorage:
         try:
             with open(self.__file_path, "r", encoding="utf=8") as f:
                 jsob = json.load(f)
-            for key, value in jsob.items():
-                self.__objects[key] = BaseModel(**value)
+            for key in jsob:
+                self.__objects[key] = model[jsob[key]["__class__"]](**jsob[key])
         except FileNotFoundError:
             pass
 
