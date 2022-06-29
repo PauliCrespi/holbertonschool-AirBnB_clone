@@ -40,6 +40,6 @@ class BaseModel:
                 dAux[key] = dAux[key].isoformat()
             elif key == "updated_at":
                 dAux[key] = dAux[key].isoformat()
-        dAux["__class__"] = "BaseModel"
+        dAux["__class__"] = self.__class__.__name__
         return dAux
 
