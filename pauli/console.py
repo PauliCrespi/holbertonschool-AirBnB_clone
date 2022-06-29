@@ -3,6 +3,11 @@
 import cmd, sys
 from models.base_model import BaseModel
 import models
+from models.user import User
+
+model = {"BaseModel": BaseModel,
+         "User": User
+         }
 
 class HBNBCommand(cmd.Cmd):
     """cmd class"""
@@ -25,12 +30,14 @@ class HBNBCommand(cmd.Cmd):
         x = arg.split()
         if len(x) == 0:
             print("** class name missing **")
-        elif x[0] == "BaseModel":
-            ins = BaseModel()
-            ins.save()
-            print(ins.id)
-        else:
+        elif x[0] not in model:
             print("** class doesn't exist **")
+        else:
+            for key, value  in model.items():
+                if x[0] == key:
+                    ins = value()
+                    ins.save()
+                    print(ins.id)
 
     def do_show(self, arg):
         """prints string representation based on class name and id"""
@@ -38,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
         objs = models.storage.all()
         if len(commands) == 0:
             print("** class name missing **")
-        elif commands[0] != "BaseModel":
+        elif commands[0] not in model:
             print("** class doesn't exist **")
         elif len(commands) == 1:
             print("** instance id missing **")
@@ -55,7 +62,7 @@ class HBNBCommand(cmd.Cmd):
         objs = models.storage.all()
         if len(commands) == 0:
             print("** class name missing **")
-        elif commands[0] != "BaseModel":
+        elif commands[0] not in model:
             print("** class doesn't exist **")
         elif len(commands) == 1:
             print("** instance id missing **")
@@ -76,7 +83,7 @@ class HBNBCommand(cmd.Cmd):
             for key in objs:
                 lis.append(objs[key].__str__())
             print(lis)
-        elif commands[0] == "BaseModel":
+        elif commands[0] in model:
             for key in objs:
                 if objs[key].__class__.__name__ == commands[0]:
                     lis.append(objs[key].__str__())
