@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 """File Storage"""
 
+from models.user import User
 from models.base_model import BaseModel
 import json
 
 
-model = {"BaseModel": BaseModel}
+model = {"BaseModel": BaseModel,
+         "User": User
+         }
 
 
 class FileStorage:
