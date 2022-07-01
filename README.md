@@ -28,33 +28,43 @@ $ (hbnb)
 ### COMMANDS:
 
 - help
+
 Prints a list of documented commands
 
 - help <command>
+
 Prints a description of the command
 
 - quit
+
 Exits the program
 
 - EOF
+
 Exits the program
 
 - create <ClassName>
+
 Creates a new instance of the ClassName, saves it (to the JSON file) and prints the id.
 
 - show <ClassName> <id>
+
 Prints the string representation of an instance based on the class name and id.
 
 - destroy <ClassName> <id>
+
 Deletes an instance based on the class name and id (save the change into the JSON file).
 
 - all 
+
 Prints all string representation of all instances.
 
 - all <ClassName>
+
 Prints all string representation of all instances based on the class name.
 
 - update <class name> <id> <attribute name> "<attribute value>"
+
 Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).
 
 ## AUTHORS:
