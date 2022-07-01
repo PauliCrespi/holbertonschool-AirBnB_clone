@@ -48,9 +48,8 @@ class FileStorage:
         """deserializes the JSON file to __objects"""
         try:
             with open(self.__file_path, "r", encoding="utf=8") as f:
-                jsob = json.load(f)
-            for key in jsob:
-                self.__objects[key] = model[jsob[key]["__class__"]](**jsob[key])
+                jo = json.load(f)
+            for key in jo:
+                self.__objects[key] = model[jo[key]["__class__"]](**jo[key])
         except FileNotFoundError:
             pass
-
