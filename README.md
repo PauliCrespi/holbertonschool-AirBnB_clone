@@ -31,7 +31,7 @@ $ (hbnb)
 
 Prints a list of documented commands
 
-- help <command>
+- help "<command>"
 
 Prints a description of the command
 
