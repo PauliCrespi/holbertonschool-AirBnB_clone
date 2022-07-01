@@ -129,7 +129,7 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return
 
-        setattr(value, commands[2], commands[3])
+        setattr(value, commands[2], commands[3].replace('"', ''))
         models.storage.save()
 
 
