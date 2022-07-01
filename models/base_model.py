@@ -2,6 +2,7 @@
 """base model"""
 import uuid
 import datetime
+import models
 
 class BaseModel:
     """class model"""
@@ -19,15 +20,17 @@ class BaseModel:
         else:
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
-        self.id = str(uuid.uuid4())
+            self.id = str(uuid.uuid4())
+            models.storage.new(self)
 
     def __str__(self):
         """str representation"""
-        return("[BaseModel] ({}) {}".format(self.id, self.__dict__))
+        return("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
 
     def save(self):
         """saves"""
         self.updated_at = datetime.datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """returns dictionary of the instance"""
@@ -37,6 +40,6 @@ class BaseModel:
                 dAux[key] = dAux[key].isoformat()
             if key == "updated_at":
                 dAux[key] = dAux[key].isoformat()
-        dAux["__class__"] = "BaseModel"
+        dAux["__class__"] = self.__class__.__name__
         return dAux
 
