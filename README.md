@@ -21,7 +21,7 @@ To open the console type:
 
 $ ./console.py
 
-The console wil print a prompt(hbnb) and exoect you to type a command:
+The console wil print a prompt(hbnb) and expect you to type a command:
 
 $ (hbnb) 
 
@@ -66,6 +66,43 @@ Prints all string representation of all instances based on the class name.
 - update [class name] [id] [attribute name] "[attribute value]"
 
 Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).
+
+
+EXAMPLES:
+
+$ ./console.py
+
+$ (hbnb) help
+
+Documented commands (type help [topic]):
+
+==================================================
+
+EOF help quit create all show destroy update 
+
+
+$ (hbnb) help quit 
+
+Quit command to exit the program
+
+$ (hbnb) all
+
+["[BaseModel] (2dd6ef5c-467c-4f82-9521-a772ea7d84e9) {'id': '2dd6ef5c-467c-4f82-9521-a772ea7d84e9', 'created_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639717), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639724)}, [User] (38f22813-2753-4d42-b37c-57a17f1e4f88) {'id': '38f22813-2753-4d42-b37c-57a17f1e4f88', 'created_at': datetime.datetime(2017, 9, 28, 21, 11, 42, 848279), 'updated_at': datetime.datetime(2017, 9, 28, 21, 11, 42, 848291)"]
+
+$ (hbnb) all BaseModel
+
+["[BaseModel] (2dd6ef5c-467c-4f82-9521-a772ea7d84e9) {'id': '2dd6ef5c-467c-4f82-9521-a772ea7d84e9', 'created_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639717), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639724)}"]
+
+$ (hbnb) create BaseModel
+
+$ (hbnb) show BaseModel 1234-1234-1234
+
+["[BaseModel] (1234-1234-1234) {'id': '1234-1234-1234', 'created_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639717), 'updated_at': datetime.datetime(2017, 10, 2, 3, 11, 23, 639724)}"]
+
+$ (hbnb) destroy BaseModel 1234-1234-1234
+
+$ (hbnb) update BaseModel 1234-1234-1234 email "aibnb@mail.com"
+
 
 ## AUTHORS:
 
