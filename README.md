@@ -68,6 +68,24 @@ Prints all string representation of all instances based on the class name.
 Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).
 
 
+### CLASS NAMES:
+
+These will be stored in the storage and can be created, updated, deleed or view its information from the console.
+
+- BaseModel
+
+- User
+
+- State
+
+- City
+
+- Amenity
+
+- Place
+
+- Review 
+
 EXAMPLES:
 
 $ ./console.py
@@ -102,6 +120,9 @@ $ (hbnb) show BaseModel 1234-1234-1234
 $ (hbnb) destroy BaseModel 1234-1234-1234
 
 $ (hbnb) update User 38f22813-2753-4d42-b37c-57a17f1e4f88 email "aibnb@mail.com"
+
+$ (hbnb) quit
+
 
 
 ## AUTHORS:
