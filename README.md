@@ -76,9 +76,9 @@ $ (hbnb) help
 
 Documented commands (type help [topic]):
 
-==================================================
+============================================================
 
-EOF help quit create all show destroy update 
+EOF   help   quit   create   all   show   destroy   update 
 
 
 $ (hbnb) help quit 
