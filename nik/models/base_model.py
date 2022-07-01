@@ -2,7 +2,7 @@
 """base model"""
 import uuid
 import datetime
-import models
+import  models
 
 class BaseModel:
     """class model"""
@@ -25,7 +25,7 @@ class BaseModel:
 
     def __str__(self):
         """str representation"""
-        return("[BaseModel] ({}) {}".format(self.id, self.__dict__))
+        return("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
 
     def save(self):
         """saves"""
@@ -38,7 +38,8 @@ class BaseModel:
         for key in dAux:
             if key == "created_at":
                 dAux[key] = dAux[key].isoformat()
-            if key == "updated_at":
+            elif key == "updated_at":
                 dAux[key] = dAux[key].isoformat()
-        dAux["__class__"] = "BaseModel"
+        dAux["__class__"] = self.__class__.__name__
         return dAux
+
