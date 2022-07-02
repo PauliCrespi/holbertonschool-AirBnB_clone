@@ -32,6 +32,21 @@ class testUser(unittest.TestCase):
         self.assertEqual(type(usr.first_name), str)
         self.assertEqual(type(usr.last_name), str)
 
+    def test4(self):
+        """test everything"""
+        usr = User()
+        usr.first_name = "Betty"
+        usr.last_name = "Holberton"
+        usr.email = "betty@holberton.com"
+        usr.password = "betty123"
+        usr.save()
+
+        self.assertEqual(usr.first_name, "Betty")
+        self.assertEqual(usr.last_name, "Holberton")
+        self.assertEqual(usr.email, "betty@holberton.com")
+        self.assertEqual(usr.password, "betty123")
+
+
 
 if __name__ == '__main__':
     unittest.main()
