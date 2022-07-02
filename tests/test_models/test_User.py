@@ -16,3 +16,10 @@ class testUser(unittest.TestCase):
         self.assertTrue(hasattr(user, "first_name"))
         self.assertTrue(hasattr(user, "last_name"))
 
+    def test2(self):
+        """checks if attributes are empty"""
+        usr = User()
+        self.assertEqual(usr.email, "")
+        self.assertEqual(usr.password, "")
+        self.assertEqual(usr.first_name, "")
+        self.assertEqual(usr.last_name, "")
