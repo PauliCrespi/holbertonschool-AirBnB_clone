@@ -27,7 +27,7 @@ class testUser(unittest.TestCase):
     def test3(self):
         """checks attributes types"""
         usr = User()
-        self.asserEqual(type(usr.email), str)
-        self.asserEqual(type(usr.password), str)
-        self.asserEqual(type(usr.first_name), str)
-        self.asserEqual(type(usr.last_name), str)
+        self.assertEqual(type(usr.email), str)
+        self.assertEqual(type(usr.password), str)
+        self.assertEqual(type(usr.first_name), str)
+        self.assertEqual(type(usr.last_name), str)
