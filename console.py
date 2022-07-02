@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """console"""
-import cmd, sys
+import cmd, sys, shlex
 from models.base_model import BaseModel
 import models
 from models.user import User
@@ -18,6 +18,8 @@ model = {"BaseModel": BaseModel,
          "Place": Place,
          "Review": Review
          }
+
+functions = ['all', 'count', 'show', 'destroy', 'update']
 
 class HBNBCommand(cmd.Cmd):
     """cmd class"""
@@ -102,8 +104,61 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, arg):
-	"""Updates an instance"""
+        """Updates an instance"""
+        commands = arg.split()
+        if len(commands) == 0:
+            print("** class name missing **")
+        elif commands[0] not in model:
+            print("** class doesn't exist **")
+        elif len(commands) == 1:
+            print("** instance id missing **")
 
+        elem = commands[0] + "." + commands[1]
+        flag = 0
+
+        for key, value in models.storage.all().items():
+            if elem == key:
+                flag = 1
+                break
+
+        if flag == 0:
+            print("** no instance found **")
+            return
+        if len(commands) < 3:
+            print("** attribute name missing **")
+            return
+        if len(commands) < 4:
+            print("** value missing **")
+            return
+
+        setattr(value, commands[2], commands[3].replace('"', ''))
+        models.storage.save()
+
+    def precmd(self, arg):
+        cl = arg.split('.')[0]
+        if cl in model:
+            if '(' in arg and ')' in arg[-1]:
+                func = arg.split('.')[1].split('(')[0]
+                if func in functions:
+                    objs = models.storage.all()
+                    if func == "all":
+                        lis = []
+                        for key in objs:
+                            if objs[key].__class__.__name__ == cl:
+                                lis.append(objs[key].__str__())
+                        print(lis)
+                        return ""
+                    elif func == "count":
+                        counter = 0
+                        for ci in models.storage.all().values():
+                            if ci.__class__.__name__ == cl:
+                                counter += 1
+                        print (counter)
+                        return ""
+                    elif func == "show" or func == "destroy":
+                        id = arg.split('.')[1].split('(')[1][1:-2]
+                        return f"{func} {cl} {id}"
+        return arg
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
