@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """console"""
-import cmd, sys, shlex
+import cmd
+import sys
+import shlex
 from models.base_model import BaseModel
 import models
 from models.user import User
@@ -21,17 +23,18 @@ model = {"BaseModel": BaseModel,
 
 functions = ['all', 'count', 'show', 'destroy', 'update']
 
+
 class HBNBCommand(cmd.Cmd):
     """cmd class"""
     prompt = '(hbnb) '
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
-        return True;
+        return True
 
     def do_EOF(self, arg):
         """EOF command to exit the program"""
-        return True;
+        return True
 
     def emptyline(self):
         """empty line + enter"""
@@ -45,7 +48,7 @@ class HBNBCommand(cmd.Cmd):
         elif x[0] not in model:
             print("** class doesn't exist **")
         else:
-            for key, value  in model.items():
+            for key, value in model.items():
                 if x[0] == key:
                     ins = value()
                     ins.save()
@@ -153,12 +156,13 @@ class HBNBCommand(cmd.Cmd):
                         for ci in models.storage.all().values():
                             if ci.__class__.__name__ == cl:
                                 counter += 1
-                        print (counter)
+                        print(counter)
                         return ""
                     elif func == "show" or func == "destroy":
                         id = arg.split('.')[1].split('(')[1][1:-2]
                         return f"{func} {cl} {id}"
         return arg
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
