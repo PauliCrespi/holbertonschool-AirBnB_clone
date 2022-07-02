@@ -115,27 +115,27 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(commands) == 1:
             print("** instance id missing **")
+        else:
+            elem = commands[0] + "." + commands[1]
+            flag = 0
 
-        elem = commands[0] + "." + commands[1]
-        flag = 0
+            for key, value in models.storage.all().items():
+                if elem == key:
+                    flag = 1
+                    break
 
-        for key, value in models.storage.all().items():
-            if elem == key:
-                flag = 1
-                break
+            if flag == 0:
+                print("** no instance found **")
+                return
+            if len(commands) < 3:
+                print("** attribute name missing **")
+                return
+            if len(commands) < 4:
+                print("** value missing **")
+                return
 
-        if flag == 0:
-            print("** no instance found **")
-            return
-        if len(commands) < 3:
-            print("** attribute name missing **")
-            return
-        if len(commands) < 4:
-            print("** value missing **")
-            return
-
-        setattr(value, commands[2], commands[3].replace('"', ''))
-        models.storage.save()
+            setattr(value, commands[2], commands[3].replace('"', ''))
+            models.storage.save()
 
     def precmd(self, arg):
         cl = arg.split('.')[0]
