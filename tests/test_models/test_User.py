@@ -31,3 +31,7 @@ class testUser(unittest.TestCase):
         self.assertEqual(type(usr.password), str)
         self.assertEqual(type(usr.first_name), str)
         self.assertEqual(type(usr.last_name), str)
+
+
+if __name__ == '__main__':
+    unittest.main()
