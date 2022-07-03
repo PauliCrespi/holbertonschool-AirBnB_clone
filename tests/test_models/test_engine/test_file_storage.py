@@ -28,10 +28,20 @@ class TestFileStorage(unittest.TestCase):
         model.save()
         self.assertEqual(model.name, "Betty")
         self.assertEqual(model.my_number, 11)
+        self.assertIsNotNone(models.engine.file_storage.FileStorage().save)
 
     def test3(self):
         """test all"""
         self.assertIsNotNone(models.engine.file_storage.FileStorage().all)
+        self.assertIsNotNone(models.storage.all)
+
+    def test4(self):
+        """test reload"""
+        self.assertIsNotNone(models.engine.file_storage.FileStorage().reload)
+
+    def test5(self):
+        """test new"""
+        self.assertIsNotNone(models.engine.file_storage.FileStorage().new)
 
 
 if __name__ == '__main__':
