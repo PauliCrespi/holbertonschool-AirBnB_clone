@@ -5,9 +5,10 @@ from models.base_model import BaseModel
 
 bm = BaseModel()
 
+
 class TestBaseModel(unittest.TestCase):
     """tests"""
-	
+
     def test0(self):
         """tests name"""
         x = BaseModel()
@@ -31,7 +32,7 @@ class TestBaseModel(unittest.TestCase):
         bm.name = "model"
         bm_d = bm.to_dict()
         key = ["id", "name", "my_number", "created_at",
-                "updated_at", "__class__"]
+               "updated_at", "__class__"]
         self.assertCountEqual(bm_d.keys(), key)
         self.assertEqual(bm_d["__class__"], "BaseModel")
         self.assertEqual(bm_d["my_number"], 11)
