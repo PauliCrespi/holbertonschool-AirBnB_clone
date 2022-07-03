@@ -20,6 +20,15 @@ class TestFileStorage(unittest.TestCase):
         x = FileStorage()
         self.assertEqual(type(x.all()), dict)
 
+    def test2(self):
+        """test save"""
+        model = BaseModel()
+        model.name = "Betty"
+        model.my_number = 11
+        model.save()
+        self.assertEqual(model.name, "Betty")
+        self.assertEqual(model.my_number, 11)
+
 
 if __name__ == '__main__':
     unittest.main()
