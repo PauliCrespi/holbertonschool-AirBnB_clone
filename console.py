@@ -26,7 +26,12 @@ functions = ['all', 'count', 'show', 'destroy', 'update']
 
 class HBNBCommand(cmd.Cmd):
     """cmd class"""
-    prompt = '(hbnb) '
+    
+    if sys.stdin and sys.stdin.isatty():
+        prompt = '(hbnb) '
+    else:
+        prompt = '(hbnb)\n'
+    """prompt = '(hbnb) ' """
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
