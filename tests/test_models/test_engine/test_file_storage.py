@@ -29,6 +29,10 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(model.name, "Betty")
         self.assertEqual(model.my_number, 11)
 
+    def test3(self):
+        """test all"""
+        self.assertIsNotNone(models.engine.file_storage.FileStorage().all)
+
 
 if __name__ == '__main__':
     unittest.main()
