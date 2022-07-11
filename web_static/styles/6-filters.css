@@ -66,11 +66,12 @@
         }
         .locations:hover .popover{
         	display:block;
-            padding: 9px;
-        }
+            	padding: 9px;
+        	background-color:white;
+    	}
         .filters h2 {
         	font-size:16px;
-            margin: 15px 0px 0px 0px;
+            	margin: 15px 0px 0px 0px;
         }
 	.amenities ul {
         	list-style-type: none;
@@ -89,5 +90,6 @@
         }
         .amenities:hover .popover{
         	display:block;
-            padding: 9px;
+            	padding: 9px;
+		background-color:white;
         }
