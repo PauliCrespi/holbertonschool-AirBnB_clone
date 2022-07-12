@@ -73,7 +73,7 @@
 	font-size:16px;
         margin: 15px 0px 0px 0px;
 }
-.amenities ul {
+.filters .amenities ul {
         list-style-type: none;
         display:none;
         border: 1px solid #DDDDDD;
@@ -82,13 +82,13 @@
         border-radius: 4px;
 	margin-bottom:0px;
 }
-.amenities popover {
+.filters .amenities popover {
 	position:absolute;
         display:none;
         z-index:1;
 	color:#FAFAFA;
 }
-.amenities:hover .popover{
+.filters .amenities:hover .popover{
         display:block;
         padding: 20px;
 	background-color:white;
