@@ -67,7 +67,7 @@
         height:50px;
         background: url("../images/icon_group.png") no-repeat center;
     }
-    .max_guest mg, .number_rooms bd, .number_bathrooms br{
+    .max_guest mg, .number_rooms bd, .number_bathrooms bd{
         margin:auto;
     }
     .bed_image {
