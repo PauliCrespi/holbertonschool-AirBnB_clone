@@ -1,95 +1,95 @@
-	.filters {
-	        color:white;
-	        height:70px;
-	        width:100%;
-        	border: 1px #DDDDDD solid;
-        	border-radius: 4px;
-            position:relative;
-            display: flex;
-    		align-items: center;
-		}
-        .filters button {
-        	font-size:18px;
-            background-color:#FF5A5F;
-            color:#FFFFFF;
-            height: 48px;
-            width: 20%;
-            border: none;
-            border-radius: 4px;
-            text-align: center;
-            position:absolute;
-            right:30px;
-        }
-        .filters button:hover{
-    		opacity: 90%;
-		}
-        .filters div {
-        	height:100%;
-            width:25%;
-            color:black;
-            margin-left:30px;
-        }
-        .locations{
-    		border-right: #DDDDDD solid 1px;
-    		position: relative;
-            display:inline-block;
-         }
-        .filters h3{
-        	display:flex;
-        	font-weight:600;
-            margin-bottom:0px;
-		}
-        .filters h4{
-        	text-align:left;
-            justify-content:left;
-        	font-weight:400;
-            font-size:14px;
-            margin-top:0px;
-		}
-        .filters ul {
-        	list-style-type: none;
-            display:none;
-            border: 1px solid #DDDDDD;
-            width:150px;
-            margin-left:-30px;
-            border-radius: 4px;
-            margin-bottom:0px;
-        }
-        .popover li {
-        	margin: 5px 0px 0px 20px;
-        }
-        .locations popover {
-            position:absolute;
-            display:none;
-            z-index:1;
-            color:#FAFAFA;
-        }
-        .locations:hover .popover{
-        	display:block;
-            	padding: 9px;
-        	background-color:white;
-    	}
-        .filters h2 {
-        	font-size:16px;
-            	margin: 15px 0px 0px 0px;
-        }
-	.amenities ul {
-        	list-style-type: none;
-            display:none;
-            border: 1px solid #DDDDDD;
-            width:150px;
-            margin-left:-30px;
-            border-radius: 4px;
-            margin-bottom:0px;
-        }
-        .amenities popover {
-            position:absolute;
-            display:none;
-            z-index:1;
-            color:#FAFAFA;
-        }
-        .amenities:hover .popover{
-        	display:block;
-            	padding: 9px;
-		background-color:white;
-        }
+.filters {
+	color:white;
+	height:70px;
+	width:100%;
+        border: 1px #DDDDDD solid;
+        border-radius: 4px;
+        position:relative;
+        display: flex;
+    	align-items: center;
+}
+.filters button {
+       	font-size:18px;
+        background-color:#FF5A5F;
+        color:#FFFFFF;
+        height: 48px;
+        width: 20%;
+        border: none;
+	border-radius: 4px;
+        text-align: center;
+        position:absolute;
+        right:30px;
+}
+.filters button:hover{
+	opacity: 90%;
+}
+.filters div {
+       	height:100%;
+        width:25%;
+        color:black;
+        margin-left:30px;
+}
+.locations{
+	border-right: #DDDDDD solid 1px;
+    	position: relative;
+        display:inline-block;
+}
+.filters h3{
+      	display:flex;
+       	font-weight:600;
+        margin-bottom:0px;
+}
+.filters h4{
+       	text-align:left;
+        justify-content:left;
+       	font-weight:400;
+        font-size:14px;
+        margin-top:0px;
+}
+.filters ul {
+       	list-style-type: none;
+        display:none;
+        border: 1px solid #DDDDDD;
+        width:240px;
+        margin-left:-30px;
+        border-radius: 4px;
+        margin-bottom:0px;
+}
+.popover li {
+       	margin: 5px 0px 0px 20px;
+}
+.locations popover {
+        position:absolute;
+        display:none;
+	z-index:1;
+        color:#FAFAFA;
+}
+.locations:hover .popover{
+        display:block;
+        padding: 20px;
+       	background-color:white;
+}
+.filters h2 {
+	font-size:16px;
+        margin: 15px 0px 0px 0px;
+}
+.amenities ul {
+        list-style-type: none;
+        display:none;
+        border: 1px solid #DDDDDD;
+        width:240px;
+        margin-left:-30px;
+        border-radius: 4px;
+	margin-bottom:0px;
+}
+.amenities popover {
+	position:absolute;
+        display:none;
+        z-index:1;
+	color:#FAFAFA;
+}
+.amenities:hover .popover{
+        display:block;
+        padding: 20px;
+	background-color:white;
+}
