@@ -4,6 +4,9 @@
 	width:100%;
 	border: 1px #DDDDDD solid;
 	border-radius: 4px;
+	display:flex;
+	position:relative;
+	align-items:center;
 }
 .filters button {
         font-size:18px;
